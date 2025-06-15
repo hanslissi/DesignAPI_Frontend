@@ -1,0 +1,12 @@
+.cardsLinkGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--gap-lg);
+}
+
+.cardsLinkGrid > * {
+    width: inherit;
+    height: inherit;
+    aspect-ratio: .65;
+    border-radius: var(--radius-xl);
+}

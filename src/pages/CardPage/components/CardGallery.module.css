@@ -1,0 +1,25 @@
+.cardGallery {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galleryNav {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cardDisplay {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 400px;
+  width: 100%;
+}

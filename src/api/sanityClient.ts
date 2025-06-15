@@ -1,5 +1,10 @@
 import { createClient } from "@sanity/client";
-import { CARD_BY_SLUG, CARDS_BY_COLLECTION_SLUG } from "./queryConstants";
+import {
+  ALL_COLLECTIONS_QUERY,
+  CARD_BY_SLUG_COLLECTION_SLUG_QUERY,
+  CARD_BY_SLUG_QUERY,
+  CARDS_BY_COLLECTION_SLUG_QUERY,
+} from "./queryConstants";
 
 export type SanityCollection = {
   title: string;
@@ -21,7 +26,7 @@ export type SanityCard = {
 type CacheFetchProps<T> = {
   key: string;
   query: string;
-  params?: Record<string, string>;
+  params?: Record<string, string | undefined>;
   transform?: (result: T) => T;
 };
 
@@ -31,7 +36,6 @@ export const sanityClient = createClient({
 });
 
 const promiseCache = new Map<string, Promise<unknown>>();
-const cardBySlugCache = new Map<string, Promise<SanityCard>>();
 
 function cacheFetch<T>({
   key,
@@ -40,7 +44,6 @@ function cacheFetch<T>({
   transform,
 }: CacheFetchProps<T>): Promise<T> {
   if (!promiseCache.has(key)) {
-    console.log('FETCHING: ' + key);
     const promise = sanityClient
       .fetch(query, params)
       .then((res) => (transform ? transform(res) : res));
@@ -50,42 +53,36 @@ function cacheFetch<T>({
   return promiseCache.get(key)! as Promise<T>;
 }
 
-export const getCard = (slug: string) => {
-  if (cardBySlugCache.has(slug)) {
-    console.log('Getting out of cardslug');
-    return cardBySlugCache.get(slug)!;
-  }
+export const getCard = (slug: string, collectionSlug?: string) => {
+  const queryKey = collectionSlug ? `card:${collectionSlug}/${slug}` : `card:${slug}`;
+  const query = collectionSlug ? CARD_BY_SLUG_COLLECTION_SLUG_QUERY : CARD_BY_SLUG_QUERY;
   return cacheFetch<SanityCard>({
-    key: `card:${slug}`,
-    query: CARD_BY_SLUG,
-    params: { slug },
+    key: queryKey,
+    query,
+    params: { slug, collectionSlug },
     transform: (card) => {
       if (!card) {
         throw new Error(`No cards with slug: ${slug}`);
       }
-      cardBySlugCache.set(slug, Promise.resolve(card));
       return card;
     },
   });
 };
 
 export const getCardsFromCollection = (collectionSlug: string) => {
-  return cacheFetch<SanityCard[]>({
+  return cacheFetch<{ collection: SanityCollection; cards: SanityCard[] }>({
     key: `collectionCards:${collectionSlug}`,
-    query: CARDS_BY_COLLECTION_SLUG,
+    query: CARDS_BY_COLLECTION_SLUG_QUERY,
     params: { collectionSlug },
-    transform: (cards) => {
-      cards.forEach((card) => cardBySlugCache.set(card.slug, Promise.resolve(card)));
-      return cards;
+    transform: (result) => {
+      if (!result.collection) {
+        throw new Error(`No collection with slug: ${collectionSlug}`);
+      }
+      return result;
     },
   });
 };
 
-export const fetchCollections = sanityClient.fetch<SanityCollection[]>(
-  `*[_type == "collection"]{
-      title,
-      color,
-      "slug": slug.current,
-      "iconUrl": icon.asset -> url
-    }`
+export const getCollections = sanityClient.fetch<SanityCollection[]>(
+  ALL_COLLECTIONS_QUERY
 );

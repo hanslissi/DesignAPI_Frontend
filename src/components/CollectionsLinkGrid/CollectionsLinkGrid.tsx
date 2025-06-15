@@ -1,33 +1,15 @@
 import { use } from "react";
-import { fetchCollections } from "../../api/sanityClient";
+import { getCollections } from "@api/sanityClient";
 import { CollectionPanel } from "../CollectionPanel/CollectionPanel";
 import styles from "./CollectionsLinkGrid.module.css";
 import { ErrorBoundarySuspense } from "../ErrorBoundarySuspense/ErrorBoundarySuspense";
-import { Skeleton } from "./components";
+import { Skeleton } from "./components/Skeleton";
 
 const SuspenseComponent = () => {
-  const collections = use(fetchCollections);
+  const collections = use(getCollections);
 
   return (
     <div className={styles.collectionsGrid}>
-      {collections.map((collection) => (
-        <CollectionPanel collection={collection} />
-      ))}
-      {collections.map((collection) => (
-        <CollectionPanel collection={collection} />
-      ))}
-      {collections.map((collection) => (
-        <CollectionPanel collection={collection} />
-      ))}
-      {collections.map((collection) => (
-        <CollectionPanel collection={collection} />
-      ))}
-      {collections.map((collection) => (
-        <CollectionPanel collection={collection} />
-      ))}
-      {collections.map((collection) => (
-        <CollectionPanel collection={collection} />
-      ))}
       {collections.map((collection) => (
         <CollectionPanel collection={collection} />
       ))}

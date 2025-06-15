@@ -1,4 +1,4 @@
-import { SkeletonCard } from "../../../SkeletonCard/SkeletonCard";
+import { SkeletonCard } from "../../SkeletonCard/SkeletonCard";
 import styles from "./Skeleton.module.css";
 
 export const Skeleton = () => {

@@ -1,0 +1,9 @@
+.cardsLinkGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: var(--gap-lg);
+}
+
+.cardLink > img {
+    width: 100%;
+}

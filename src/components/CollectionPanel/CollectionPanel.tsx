@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import type { SanityCollection } from "../../api/sanityClient";
+import type { SanityCollection } from "@api/sanityClient";
 import styles from "./CollectionPanel.module.css";
 import { Icon } from "../Icon/Icon";
 
