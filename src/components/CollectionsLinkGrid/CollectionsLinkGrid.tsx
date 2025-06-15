@@ -1,0 +1,44 @@
+import { use } from "react";
+import { fetchCollections } from "../../api/sanityClient";
+import { CollectionPanel } from "../CollectionPanel/CollectionPanel";
+import styles from "./CollectionsLinkGrid.module.css";
+import { ErrorBoundarySuspense } from "../ErrorBoundarySuspense/ErrorBoundarySuspense";
+import { Skeleton } from "./components";
+
+const SuspenseComponent = () => {
+  const collections = use(fetchCollections);
+
+  return (
+    <div className={styles.collectionsGrid}>
+      {collections.map((collection) => (
+        <CollectionPanel collection={collection} />
+      ))}
+      {collections.map((collection) => (
+        <CollectionPanel collection={collection} />
+      ))}
+      {collections.map((collection) => (
+        <CollectionPanel collection={collection} />
+      ))}
+      {collections.map((collection) => (
+        <CollectionPanel collection={collection} />
+      ))}
+      {collections.map((collection) => (
+        <CollectionPanel collection={collection} />
+      ))}
+      {collections.map((collection) => (
+        <CollectionPanel collection={collection} />
+      ))}
+      {collections.map((collection) => (
+        <CollectionPanel collection={collection} />
+      ))}
+    </div>
+  );
+};
+
+export const CollectionsLinkGrid = () => {
+  return (
+    <ErrorBoundarySuspense suspenseFallback={<Skeleton />}>
+      <SuspenseComponent />
+    </ErrorBoundarySuspense>
+  );
+};

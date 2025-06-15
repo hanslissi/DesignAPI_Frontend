@@ -1,0 +1,16 @@
+.dividerHeadline {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-lg);
+    align-items: center;
+    width: 100%;
+}
+
+.dividerHeadline::before,
+.dividerHeadline::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-subtle);
+}

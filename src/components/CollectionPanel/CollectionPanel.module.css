@@ -1,0 +1,21 @@
+.collectionPanel {
+  --shadow-color: var(--color-bg-faded);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--gap-sm);
+  padding: var(--gap-md);
+  border-radius: var(--radius-md);
+  background-color: var(--color-bg-base);
+  border: 2px solid var(--color-bg-subtle);
+  transition: box-shadow .3s ease-in-out;
+}
+
+.collectionPanel:hover {
+  box-shadow: 0 var(--size-sm) var(--size-md) var(--shadow-color);
+}
+
+.collectionIcon {
+  width: var(--icon-xl);
+  aspect-ratio: 1;
+}

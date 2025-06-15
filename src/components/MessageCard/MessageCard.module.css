@@ -1,0 +1,6 @@
+.messageCard {
+  padding: var(--gap-md);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-bg-faded);
+  border: 2px solid var(--color-bg-subtle);
+}

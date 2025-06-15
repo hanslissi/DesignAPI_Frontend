@@ -1,0 +1,111 @@
+:root {
+  /* Element Sizes */
+  --size-sm: 0.25rem;
+  --size-md: 0.5rem;
+  --size-lg: 1rem;
+  --size-xl: 2rem;
+  --size-2xl: 3.75rem;
+
+  /* Border Radii */
+  --radius-sm: var(--size-sm);
+  --radius-md: var(--size-md);
+  --radius-lg: var(--size-lg);
+  --radius-xl: var(--size-xl);
+
+  /* Spacing */
+  --gap-sm: var(--size-sm);
+  --gap-md: var(--size-md);
+  --gap-lg: var(--size-lg);
+  --gap-xl: var(--size-xl);
+  --gap-2xl: var(--size-2xl);
+
+  /* Icon Sizes */
+  --icon-xl: var(--size-xl);
+
+  /* FONT TOKENS */
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-2xl: 3.75rem;
+
+  --font-h1: var(--font-size-2xl);
+  --font-h2: var(--font-size-lg);
+  --font-h3: var(--font-size-md);
+  --font-p: var(--font-size-sm);
+
+  /* COLORS */
+  --eggshell-100: #fffdf3;
+  --eggshell-200: #f2f0e7;
+  --eggshell-300: #e2e1da;
+  --graysky-100: #e4e8e9;
+  --graysky-200: #ccd2d5;
+  --graysky-300: #a8b2b8;
+  --graysky-50: #f4f5f7;
+  --graysky-500: #626f78;
+  --graysky-600: #4e575f;
+  --graysky-700: #484f56;
+  --graysky-800: #40454a;
+  --graysky-900: #383c41;
+  --graysky-950: #232529;
+
+  /* SEMANTIC COLORS */
+  --color-bg-base: var(--eggshell-100);
+  --color-bg-faded: var(--eggshell-200);
+  --color-bg-subtle: var(--eggshell-300);
+
+  --color-text-base: var(--graysky-950);
+  --color-text-faded: var(--graysky-200);
+  --color-text-subtle: var(--graysky-600);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-weight: 800;
+}
+h1 {
+  font-size: var(--font-h1);
+  font-weight: normal;
+}
+h2 {
+  font-size: var(--font-h2);
+}
+h3 {
+  font-size: var(--font-h3);
+}
+
+p, a {
+  margin: 0;
+  font-size: var(--font-p);
+}
+
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.darkTheme {
+  --color-bg-base: var(--graysky-950);
+  --color-bg-faded: var(--graysky-900);
+  --color-bg-subtle: var(--graysky-800);
+
+  --color-text-base: var(--graysky-50);
+  --color-text-faded: var(--graysky-600);
+  --color-text-subtle: var(--graysky-300);
+}
+
+.lightTheme {
+  --color-bg-base: var(--eggshell-100);
+  --color-bg-faded: var(--eggshell-200);
+  --color-bg-subtle: var(--eggshell-300);
+
+  --color-text-base: var(--graysky-950);
+  --color-text-faded: var(--graysky-200);
+  --color-text-subtle: var(--graysky-600);
+}

@@ -1,0 +1,5 @@
+.icon {
+  --icon-size: 8;
+  height: calc(var(--icon-size) * 1rem / 16);
+  width: calc(var(--icon-size) * 1rem / 16);
+}

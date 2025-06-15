@@ -1,10 +1,19 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import { BrowserRouter, Route, Routes } from "react-router";
+import "./global.css";
+import { HomePage } from "./pages";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { CollectionPage } from "./pages/CollectionPage";
+import { CardPage } from "./pages/CardPage";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/:collectionSlug" element={<CollectionPage />} />
+        <Route path="/:collectionSlug/:cardSlug" element={<CardPage />} />
+      </Routes>
+    </BrowserRouter>
+  </StrictMode>
+);

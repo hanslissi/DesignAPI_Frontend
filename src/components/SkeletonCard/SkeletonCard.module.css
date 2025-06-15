@@ -1,0 +1,24 @@
+.skeleton {
+  height: var(--size-2xl);
+  width: 100%;
+  border-radius: var(--radius-md);
+  background-image: linear-gradient(
+    0.25turn,
+    var(--color-bg-faded),
+    var(--color-bg-subtle) 10%,
+    var(--color-bg-faded) 20%
+  );
+  background-size: 200%;
+  background-position: -100% 0;
+  animation: slide 1s infinite ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+    background-position: 40% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
