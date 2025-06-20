@@ -10,8 +10,8 @@ const SuspenseComponent = () => {
 
   return (
     <div className={styles.collectionsGrid}>
-      {collections.map((collection) => (
-        <CollectionPanel collection={collection} />
+      {collections.map((collection, index) => (
+        <CollectionPanel collection={collection} key={`${collection.slug}.${index}`}/>
       ))}
     </div>
   );

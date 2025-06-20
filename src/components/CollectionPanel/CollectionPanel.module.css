@@ -8,7 +8,7 @@
   border-radius: var(--radius-md);
   background-color: var(--color-bg-base);
   border: 2px solid var(--color-bg-subtle);
-  transition: box-shadow .3s ease-in-out;
+  transition: box-shadow var(--anim-duration-sm) ease-in-out;
 }
 
 .collectionPanel:hover {

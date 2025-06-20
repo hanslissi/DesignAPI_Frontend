@@ -7,15 +7,17 @@ type Props = {
   collection: SanityCollection;
 };
 
-export const CollectionPanel = ({ collection }: Props) => {
+export const CollectionPanel = ({
+  collection: { title, slug, iconUrl, color },
+}: Props) => {
   return (
     <Link
-      to={`/${collection.slug}`}
+      to={`/${slug}`}
       className={styles.collectionPanel}
-      style={{ "--shadow-color": `${collection.color}44` } as React.CSSProperties}
+      style={{ "--shadow-color": `${color}44` } as React.CSSProperties}
     >
-      <Icon src={collection.iconUrl} size={24} alt={`${collection.title} collection icon`}/>
-      {collection.title}
+      <Icon src={iconUrl} size={24} alt={`${title} collection icon`} />
+      {title}
     </Link>
   );
 };

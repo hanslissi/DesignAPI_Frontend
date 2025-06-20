@@ -8,5 +8,5 @@
     width: inherit;
     height: inherit;
     aspect-ratio: .65;
-    border-radius: var(--radius-xl);
+    border-radius: var(--radius-lg);
 }

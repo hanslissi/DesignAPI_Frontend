@@ -12,7 +12,10 @@ type Props = {
 };
 
 const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
-  const { cards } = use(getCardsFromCollection(collectionSlug));
+  const {
+    cards,
+    collection: { color },
+  } = use(getCardsFromCollection(collectionSlug));
   const currIdx = cards.findIndex((card) => card.slug === cardSlug);
   const nextCardSlug =
     currIdx !== -1
@@ -23,8 +26,12 @@ const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
       ? cards[(currIdx + cards.length - 1) % cards.length].slug
       : null;
 
+  console.log(color);
+
   return (
-    <div className={styles.cardGallery}>
+    <div className={styles.cardGallery} style={{
+      "--shadow-color": `${color}44`
+    } as React.CSSProperties}>
       <nav className={styles.galleryNav}>
         {nextCardSlug && prevCardSlug && (
           <>

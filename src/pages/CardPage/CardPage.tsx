@@ -5,7 +5,7 @@ import { CardGallery } from "./components/CardGallery";
 export const CardPage = () => {
   const { collectionSlug = "", cardSlug = "" } = useParams();
 
-  return <PageLayoutWrapper>
+  return <PageLayoutWrapper key={`${collectionSlug}/${cardSlug}`}>
     <CardGallery collectionSlug={collectionSlug} cardSlug={cardSlug}/>
   </PageLayoutWrapper>;
 };

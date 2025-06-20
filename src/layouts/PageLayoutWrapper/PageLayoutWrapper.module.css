@@ -12,6 +12,7 @@
 }
 
 .mainContent {
+  background-color: var(--color-bg-base);
   border-radius: var(--radius-xl);
   border: 2px solid var(--color-bg-subtle);
   height: 100%;

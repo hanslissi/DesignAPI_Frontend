@@ -1,9 +1,32 @@
 .cardsLinkGrid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: var(--gap-lg);
+  --animation-delay: 0s;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: var(--gap-lg);
+  perspective: 1000px;
+}
+
+.cardLink {
+  animation: turnReveal var(--anim-duration-md) var(--animation-delay) backwards;
+  transition: transform var(--anim-duration-md);
+}
+
+.cardLink:hover {
+  transform: scale(1.025);
 }
 
 .cardLink > img {
-    width: 100%;
+  width: 100%;
+}
+
+@keyframes turnReveal {
+  0% {
+    opacity: 0;
+    transform: rotateY(90deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(0deg);
+  }
 }

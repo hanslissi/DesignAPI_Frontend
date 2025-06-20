@@ -1,4 +1,8 @@
 :root {
+  /* Animations */
+  --anim-duration-sm: 0.3s;
+  --anim-duration-md: 0.6s;
+
   /* Element Sizes */
   --size-sm: 0.25rem;
   --size-md: 0.5rem;
@@ -61,12 +65,14 @@
 
 body {
   margin: 0;
-  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0;
-  font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+  font-family: "JetBrains Mono", "Courier New", Courier, monospace;
   font-weight: 800;
 }
 h1 {
@@ -80,7 +86,8 @@ h3 {
   font-size: var(--font-h3);
 }
 
-p, a {
+p,
+a {
   margin: 0;
   font-size: var(--font-p);
 }
@@ -88,6 +95,18 @@ p, a {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+button,
+input[type="submit"],
+input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
 }
 
 .darkTheme {

@@ -14,10 +14,14 @@ const SuspenseComponent = ({ collectionSlug }: Props) => {
 
   return (
     <div className={styles.cardsLinkGrid}>
-      {cards.map((card) => (
+      {cards.map((card, index) => (
         <Link
           to={`/${card.collectionSlug}/${card.slug}`}
           className={styles.cardLink}
+          key={`${card.slug}.${index}`}
+          style={{
+            "--animation-delay": `${index*0.2}s`
+          } as React.CSSProperties}
         >
           <img src={card.imgFrontLightUrl} alt="Front Light" />
         </Link>
