@@ -7,6 +7,8 @@
 }
 
 .cardLink {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
   animation: turnReveal var(--anim-duration-md) var(--animation-delay) backwards;
   transition: transform var(--anim-duration-md);
 }

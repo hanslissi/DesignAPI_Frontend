@@ -17,8 +17,6 @@ export const HomePage = () => {
           </span>
         </h1>
 
-        
-
         <div className={styles.sections}>
           <section>
             <DividerHeadline>Card Collections</DividerHeadline>
