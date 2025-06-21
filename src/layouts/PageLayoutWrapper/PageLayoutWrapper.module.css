@@ -17,6 +17,7 @@
   border: 2px solid var(--color-bg-subtle);
   height: 100%;
   padding: var(--size-lg);
+  box-shadow: 0 0 var(--size-xl) var(--color-bg-subtle);
   overflow: scroll;
 
   -ms-overflow-style: none;

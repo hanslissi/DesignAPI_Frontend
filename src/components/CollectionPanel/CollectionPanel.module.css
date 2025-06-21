@@ -3,12 +3,13 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: var(--gap-sm);
+  gap: var(--gap-md);
   padding: var(--gap-md);
   border-radius: var(--radius-md);
   background-color: var(--color-bg-base);
   border: 2px solid var(--color-bg-subtle);
-  transition: box-shadow var(--anim-duration-sm) ease-in-out;
+  transition: var(--theme-transitions),
+    box-shadow var(--anim-duration-sm) ease-in-out;
 }
 
 .collectionPanel:hover {

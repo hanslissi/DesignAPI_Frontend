@@ -3,6 +3,10 @@
   --anim-duration-sm: 0.3s;
   --anim-duration-md: 0.6s;
 
+  --theme-transitions: background-color var(--anim-duration-sm),
+    color var(--anim-duration-sm), border var(--anim-duration-sm),
+    box-shadow var(--anim-duration-sm);
+
   /* Element Sizes */
   --size-sm: 0.25rem;
   --size-md: 0.5rem;
@@ -127,4 +131,8 @@ input[type="reset"] {
   --color-text-base: var(--graysky-950);
   --color-text-faded: var(--graysky-200);
   --color-text-subtle: var(--graysky-600);
+}
+
+*, *::before, *::after {
+  transition: var(--theme-transitions);
 }

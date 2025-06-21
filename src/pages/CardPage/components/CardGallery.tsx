@@ -26,8 +26,6 @@ const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
       ? cards[(currIdx + cards.length - 1) % cards.length].slug
       : null;
 
-  console.log(color);
-
   return (
     <div className={styles.cardGallery} style={{
       "--shadow-color": `${color}44`

@@ -9,7 +9,7 @@ export type ThemeConfig = {
   theme: Theme;
   themeSetting: ThemeSetting;
   toggleThemeSetting: () => void;
-}
+};
 
 const isThemeSetting = (value: unknown): value is ThemeSetting => {
   return (
@@ -35,10 +35,27 @@ export const useTheme = (): ThemeConfig => {
   const [themeSetting, setThemeSetting] = useState<ThemeSetting>(
     getThemeSetting(value)
   );
+  const [theme, setTheme] = useState<Theme>(getTheme(value));
 
   useEffect(() => {
-    setThemeSetting(getThemeSetting(value));
+    const newSetting: ThemeSetting = getThemeSetting(value);
+    setThemeSetting(newSetting);
+    setTheme(getTheme(newSetting));
   }, [value]);
+
+  useEffect(() => {
+    if (themeSetting !== "auto") return;
+
+    const matchMedia = window.matchMedia("(prefers-color-scheme: light)");
+    const handleChangePrefersColorScheme = (event: MediaQueryListEvent) => {
+      setTheme(event.matches ? "light" : "dark");
+    };
+
+    matchMedia.addEventListener("change", handleChangePrefersColorScheme);
+    return () => {
+      matchMedia.removeEventListener("change", handleChangePrefersColorScheme);
+    };
+  }, [themeSetting]);
 
   const toggleThemeSetting = () => {
     let newThemeSetting: ThemeSetting = themeSetting;
@@ -56,8 +73,8 @@ export const useTheme = (): ThemeConfig => {
   };
 
   return {
-    theme: getTheme(themeSetting),
-    themeSetting: themeSetting,
-    toggleThemeSetting
+    theme,
+    themeSetting,
+    toggleThemeSetting,
   };
 };
