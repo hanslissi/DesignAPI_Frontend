@@ -24,9 +24,19 @@ export const PageLayoutWrapper = ({ children }: Props) => {
           darkTheme: themeConfig.theme === "dark",
           lightTheme: themeConfig.theme === "light",
         })}
+        style={
+          {
+            "--background-url":
+              themeConfig.theme === "dark"
+                ? "url('/dot_grid_pattern_dark.png')"
+                : "url('/dot_grid_pattern.png')",
+          } as React.CSSProperties
+        }
       >
         <Header />
-        <button onClick={() => themeConfig.toggleThemeSetting()}>Toggle Theme {themeConfig.themeSetting}</button>
+        <button onClick={() => themeConfig.toggleThemeSetting()}>
+          Toggle Theme {themeConfig.themeSetting}
+        </button>
 
         <main className={styles.mainContent}>{children}</main>
       </div>
