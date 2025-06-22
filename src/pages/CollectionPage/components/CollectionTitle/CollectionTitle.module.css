@@ -1,0 +1,6 @@
+.collectionTitle {
+  display: flex;
+  flex-direction: row;
+  gap: var(--gap-lg);
+  align-items: center;
+}

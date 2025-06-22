@@ -15,8 +15,3 @@
 .collectionPanel:hover {
   box-shadow: 0 var(--size-sm) var(--size-md) var(--shadow-color);
 }
-
-.collectionIcon {
-  width: var(--icon-xl);
-  aspect-ratio: 1;
-}

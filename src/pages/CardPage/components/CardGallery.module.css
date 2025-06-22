@@ -20,6 +20,6 @@
 .cardDisplay {
   display: grid;
   grid-template-columns: 1fr;
-  max-width: 400px;
+  max-width: var(--max-w-md);
   width: 100%;
 }

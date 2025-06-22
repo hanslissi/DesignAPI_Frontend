@@ -7,6 +7,15 @@ export const ALL_COLLECTIONS_QUERY = `
 }
 `;
 
+export const COLLECTION_QUERY = `
+*[_type == "collection" && slug.current == $collectionSlug]{
+  title,
+  color,
+  "slug": slug.current,
+  "iconUrl": icon.asset -> url
+}[0]
+`;
+
 export const CARD_BY_SLUG_QUERY = `
 *[_type == "card" && slug.current == $slug]{
   title,

@@ -1,9 +1,14 @@
+/**
+ * TODO: This can be done so much better... 
+ * Reducing unnecessary re-fetches and stuff I'll get back on that
+ */
 import { createClient } from "@sanity/client";
 import {
   ALL_COLLECTIONS_QUERY,
   CARD_BY_SLUG_COLLECTION_SLUG_QUERY,
   CARD_BY_SLUG_QUERY,
   CARDS_BY_COLLECTION_SLUG_QUERY,
+  COLLECTION_QUERY,
 } from "./queryConstants";
 
 export type SanityCollection = {
@@ -54,8 +59,18 @@ function cacheFetch<T>({
 }
 
 export const getCard = (slug: string, collectionSlug?: string) => {
-  const queryKey = collectionSlug ? `card:${collectionSlug}/${slug}` : `card:${slug}`;
-  const query = collectionSlug ? CARD_BY_SLUG_COLLECTION_SLUG_QUERY : CARD_BY_SLUG_QUERY;
+  /**
+   * That's because depending of what I want, I can get a single card
+   * no matter if it's in any collection or I can only get it
+   * if it's part of the specified collection
+   */
+  const queryKey = collectionSlug
+    ? `card:${collectionSlug}/${slug}`
+    : `card:${slug}`;
+  const query = collectionSlug
+    ? CARD_BY_SLUG_COLLECTION_SLUG_QUERY
+    : CARD_BY_SLUG_QUERY;
+
   return cacheFetch<SanityCard>({
     key: queryKey,
     query,
@@ -76,6 +91,20 @@ export const getCardsFromCollection = (collectionSlug: string) => {
     params: { collectionSlug },
     transform: (result) => {
       if (!result.collection) {
+        throw new Error(`No collection with slug: ${collectionSlug}`);
+      }
+      return result;
+    },
+  });
+};
+
+export const getCollection = (collectionSlug: string) => {
+  return cacheFetch<SanityCollection>({
+    key: `collection:${collectionSlug}`,
+    query: COLLECTION_QUERY,
+    params: { collectionSlug },
+    transform: (result) => {
+      if (!result) {
         throw new Error(`No collection with slug: ${collectionSlug}`);
       }
       return result;

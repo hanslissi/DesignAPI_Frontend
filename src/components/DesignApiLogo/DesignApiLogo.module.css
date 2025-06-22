@@ -1,0 +1,16 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-fancy);
+}
+
+.big {
+  font-size: var(--font-h1);
+  gap: var(--gap-lg);
+}
+
+.small {
+  font-size: var(--font-h3);
+  gap: var(--gap-sm);
+}
