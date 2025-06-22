@@ -24,9 +24,10 @@
     "noUncheckedSideEffectImports": true,
 
     "paths": {
+      "@api/*": ["./src/api/*"],
+      "@assets/*": ["./src/assets/*"],
       "@components/*": ["./src/components/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@api/*": ["./src/api/*"]
+      "@layouts/*": ["./src/layouts/*"]
     }
   },
   "include": ["src"]

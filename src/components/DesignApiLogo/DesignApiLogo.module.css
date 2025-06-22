@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: center;
   font-family: var(--font-fancy);
+  background-color: var(--color-bg-base);
+  padding: var(--gap-sm);
 }
 
 .big {

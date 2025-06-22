@@ -21,3 +21,20 @@ export const Icon = ({ size, src, alt, className }: Props) => {
     />
   );
 };
+
+type SvgProps = {
+  size: IconSize;
+  IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
+  alt: string;
+  className?: string;
+};
+
+export const SvgIcon = ({ size, IconComponent, alt, className }: SvgProps) => {
+  return (
+    <IconComponent
+      className={clsx(styles.icon, className)}
+      style={{ "--icon-size": size } as React.CSSProperties}
+      aria-label={alt}
+    />
+  );
+};

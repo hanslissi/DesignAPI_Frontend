@@ -5,6 +5,11 @@ import { use } from "react";
 import { Link } from "react-router";
 import { Card } from "@components/Card/Card";
 import styles from "./CardGallery.module.css";
+import clsx from "clsx";
+import { SvgIcon } from "@components/Icon/Icon";
+
+import SvgArrowLeftIcon from "@assets/arrow_left_icon.svg?react";
+import SvgArrowRightIcon from "@assets/arrow_right_icon.svg?react";
 
 type Props = {
   collectionSlug: string;
@@ -27,20 +32,49 @@ const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
       : null;
 
   return (
-    <div className={styles.cardGallery} style={{
-      "--shadow-color": `${color}44`
-    } as React.CSSProperties}>
-      <nav className={styles.galleryNav}>
-        {nextCardSlug && prevCardSlug && (
-          <>
-            <Link to={`/${collectionSlug}/${prevCardSlug}`}>Prev</Link>
-            <Link to={`/${collectionSlug}/${nextCardSlug}`}>Next</Link>
-          </>
-        )}
-      </nav>
+    <div
+      className={styles.cardGallery}
+      style={
+        {
+          "--shadow-color": `${color}44`,
+          "--collection-color": `${color}`,
+        } as React.CSSProperties
+      }
+    >
       <div className={styles.cardDisplay}>
         <Card slug={cardSlug} collectionSlug={collectionSlug} />
       </div>
+
+      <nav className={styles.galleryNav}>
+        {nextCardSlug && prevCardSlug && (
+          <>
+            <Link
+              to={`/${collectionSlug}/${prevCardSlug}`}
+              className={clsx(styles.navButton, styles.prevButton)}
+              aria-label="Previous Card"
+            >
+              <SvgIcon
+                className={styles.icon}
+                IconComponent={SvgArrowLeftIcon}
+                size={24}
+                alt="Previous Card Icon"
+              />
+            </Link>
+            <Link
+              to={`/${collectionSlug}/${nextCardSlug}`}
+              className={clsx(styles.navButton, styles.nextButton)}
+              aria-label="Next Card"
+            >
+              <SvgIcon
+                className={styles.icon}
+                IconComponent={SvgArrowRightIcon}
+                size={24}
+                alt="Previous Card Icon"
+              />
+            </Link>
+          </>
+        )}
+      </nav>
     </div>
   );
 };
