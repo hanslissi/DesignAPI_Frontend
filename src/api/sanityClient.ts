@@ -1,5 +1,5 @@
 /**
- * TODO: This can be done so much better... 
+ * TODO: This can be done so much better...
  * Reducing unnecessary re-fetches and stuff I'll get back on that
  */
 import { createClient } from "@sanity/client";
@@ -38,6 +38,8 @@ type CacheFetchProps<T> = {
 export const sanityClient = createClient({
   projectId: "22nh6e56",
   dataset: "production",
+  apiVersion: "2025-06-22",
+  useCdn: false,
 });
 
 const promiseCache = new Map<string, Promise<unknown>>();

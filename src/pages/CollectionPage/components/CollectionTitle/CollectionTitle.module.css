@@ -10,3 +10,10 @@
   border-top-left-radius: var(--radius-xl);
   border-top-right-radius: var(--radius-xl);
 }
+
+@media (width >= 40rem) {
+  .skeleton {
+    height: 64px;
+    border-radius: var(--radius-lg);
+  }
+}
