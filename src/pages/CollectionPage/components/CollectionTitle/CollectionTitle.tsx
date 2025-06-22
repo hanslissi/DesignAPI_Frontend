@@ -1,9 +1,9 @@
 import { use } from "react";
-import styles from "./CollectionTitle.module.css";
 import { getCollection } from "@api/sanityClient";
 import { Icon } from "@components/Icon/Icon";
 import { ErrorBoundarySuspense } from "@components/ErrorBoundarySuspense/ErrorBoundarySuspense";
 import { SkeletonCard } from "@components/SkeletonCard/SkeletonCard";
+import styles from "./CollectionTitle.module.css";
 
 type Props = {
   collectionSlug: string;
@@ -22,7 +22,9 @@ const SuspenseComponent = ({ collectionSlug }: Props) => {
 
 export const CollectionTitle = ({ collectionSlug }: Props) => {
   return (
-    <ErrorBoundarySuspense suspenseFallback={<SkeletonCard />}>
+    <ErrorBoundarySuspense
+      suspenseFallback={<SkeletonCard className={styles.skeleton} />}
+    >
       <SuspenseComponent collectionSlug={collectionSlug} />
     </ErrorBoundarySuspense>
   );

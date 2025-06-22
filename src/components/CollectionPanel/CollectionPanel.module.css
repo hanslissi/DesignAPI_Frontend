@@ -4,8 +4,8 @@
   flex-direction: row;
   align-items: center;
   gap: var(--gap-md);
-  padding: var(--gap-md);
-  border-radius: var(--radius-md);
+  padding: var(--gap-md) var(--gap-lg);
+  border-radius: var(--radius-lg);
   background-color: var(--color-bg-base);
   border: 2px solid var(--color-bg-subtle);
   transition: var(--theme-transitions),
