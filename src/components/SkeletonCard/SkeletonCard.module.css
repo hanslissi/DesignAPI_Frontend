@@ -3,7 +3,7 @@
   width: 100%;
   border-radius: var(--radius-md);
   background-color: var(--color-bg-faded);
-  overflow: clip;
+  overflow: hidden;
 }
 
 .skeleton::before {

@@ -1,5 +1,6 @@
 :root {
-  /* SCREEN BREAKPOINTS */
+  /* ASPECTS */
+  --aspect-card: .65;
 
   /* MAX WIDTHS */
   --max-w-md: 25rem;
@@ -73,6 +74,13 @@
   --color-text-base: var(--graysky-950);
   --color-text-faded: var(--graysky-200);
   --color-text-subtle: var(--graysky-600);
+}
+
+#root,
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
 
 body {

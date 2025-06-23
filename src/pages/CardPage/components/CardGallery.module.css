@@ -14,6 +14,23 @@
   justify-content: space-between;
   width: 100%;
   bottom: 0;
+
+  pointer-events: none;
+}
+
+.cardDisplay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  aspect-ratio: var(--aspect-card);
+
+  --height-nav: calc(24px + var(--gap-lg));
+  --max-h-card: calc(80vh - var(--height-nav) - var(--gap-lg) * 3);
+  width: min(
+    90%,
+    min(var(--max-w-md), var(--max-h-card) * (var(--aspect-card)))
+  );
 }
 
 .navButton {
@@ -24,6 +41,8 @@
   background-color: var(--color-bg-faded);
   border-radius: var(--radius-md);
   border: 2px solid var(--color-bg-subtle);
+
+  pointer-events: all;
 }
 .nextButton {
   border-bottom-right-radius: var(--radius-xl);
@@ -34,13 +53,6 @@
 
 .icon > path {
   fill: var(--collection-color, black);
-}
-
-.cardDisplay {
-  display: grid;
-  grid-template-columns: 1fr;
-  max-width: var(--max-w-md);
-  width: 100%;
 }
 
 @media (width >= 40rem) {

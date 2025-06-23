@@ -1,14 +1,16 @@
 .cardsLinkGrid {
   --animation-delay: 0s;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  --cols: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: var(--gap-lg);
   perspective: 1000px;
 }
 
 .cardLink {
-  border-radius: var(--radius-lg);
-  overflow: hidden;
+  --w-cardlink: calc(100% / var(--cols) - var(--gap-lg));
+  width: var(--w-cardlink);
   animation: turnReveal var(--anim-duration-md) var(--animation-delay) backwards;
   transition: transform var(--anim-duration-md);
 }
@@ -35,12 +37,12 @@
 
 @media (width >= 40rem) {
   .cardsLinkGrid {
-    grid-template-columns: 1fr 1fr 1fr;
+    --cols: 3;
   }
 }
 
 @media (width >= 70rem) {
   .cardsLinkGrid {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    --cols: 4;
   }
 }
