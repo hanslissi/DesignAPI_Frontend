@@ -1,6 +1,6 @@
 :root {
   /* ASPECTS */
-  --aspect-card: .65;
+  --aspect-card: 0.65;
 
   /* MAX WIDTHS */
   --max-w-md: 25rem;
@@ -52,19 +52,28 @@
   --font-p: var(--font-size-sm);
 
   /* COLORS */
+  --yellow-100: #fef9c3;
+  --yellow-300: #fde047;
+  --yellow-400: #facc15;
+  --yellow-600: #ca8a04;
+  --yellow-300-50: #fde0477f;
+  --yellow-600-50: #ca8a047f;
+
   --eggshell-100: #fffdf3;
   --eggshell-200: #f2f0e7;
   --eggshell-300: #e2e1da;
+
+  --graysky-50: #f4f5f7;
   --graysky-100: #e4e8e9;
   --graysky-200: #ccd2d5;
   --graysky-300: #a8b2b8;
-  --graysky-50: #f4f5f7;
   --graysky-500: #626f78;
   --graysky-600: #4e575f;
   --graysky-700: #484f56;
   --graysky-800: #40454a;
   --graysky-900: #383c41;
   --graysky-950: #232529;
+  --graysky-500-25: #626f7840;
 
   /* SEMANTIC COLORS */
   --color-bg-base: var(--eggshell-100);

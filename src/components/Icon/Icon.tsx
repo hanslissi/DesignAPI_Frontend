@@ -22,14 +22,19 @@ export const Icon = ({ size, src, alt, className }: Props) => {
   );
 };
 
-type SvgProps = {
+export type SvgIconProps = {
   size: IconSize;
   IconComponent: React.FC<React.SVGProps<SVGSVGElement>>;
   alt: string;
   className?: string;
 };
 
-export const SvgIcon = ({ size, IconComponent, alt, className }: SvgProps) => {
+export const SvgIcon = ({
+  size,
+  IconComponent,
+  alt,
+  className,
+}: SvgIconProps) => {
   return (
     <IconComponent
       className={clsx(styles.icon, className)}
