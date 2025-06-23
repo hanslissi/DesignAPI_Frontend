@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import { Header } from "./components";
-import styles from "./PageLayoutWrapper.module.css";
+import { Header } from "./components/Header/Header";
 import { useTheme, type ThemeConfig } from "../../hooks/useTheme";
 import { createContext } from "react";
+import styles from "./PageLayoutWrapper.module.css";
 
 export const ThemeContext = createContext<ThemeConfig>({
   theme: "light",

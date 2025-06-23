@@ -81,7 +81,9 @@ const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
 
 export const CardGallery = ({ collectionSlug, cardSlug }: Props) => {
   return (
-    <ErrorBoundarySuspense suspenseFallback={<SkeletonCard />}>
+    <ErrorBoundarySuspense
+      suspenseFallback={<SkeletonCard className={styles.skeleton} />}
+    >
       <SuspenseComponent collectionSlug={collectionSlug} cardSlug={cardSlug} />
     </ErrorBoundarySuspense>
   );

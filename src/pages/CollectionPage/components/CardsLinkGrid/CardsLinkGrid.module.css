@@ -1,6 +1,8 @@
+/* COMPONENT */
 .cardsLinkGrid {
   --animation-delay: 0s;
   --cols: 2;
+  --w-cardlink: calc(100% / var(--cols) - var(--gap-lg));
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,7 +11,6 @@
 }
 
 .cardLink {
-  --w-cardlink: calc(100% / var(--cols) - var(--gap-lg));
   width: var(--w-cardlink);
   animation: turnReveal var(--anim-duration-md) var(--animation-delay) backwards;
   transition: transform var(--anim-duration-md);
@@ -45,4 +46,12 @@
   .cardsLinkGrid {
     --cols: 4;
   }
+}
+
+/* SKELETON */
+.skeleton > * {
+  width: var(--w-cardlink);
+  height: auto;
+  aspect-ratio: 0.65;
+  border-radius: var(--radius-lg);
 }

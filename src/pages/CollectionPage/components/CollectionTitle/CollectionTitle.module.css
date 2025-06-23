@@ -1,3 +1,4 @@
+/* COMPONENT */
 .collectionTitle {
   display: flex;
   flex-direction: row;
@@ -5,6 +6,7 @@
   align-items: center;
 }
 
+/* SKELETON */
 .skeleton {
   height: 64px;
   border-top-left-radius: var(--radius-xl);
@@ -13,7 +15,6 @@
 
 @media (width >= 40rem) {
   .skeleton {
-    height: 64px;
     border-radius: var(--radius-lg);
   }
 }

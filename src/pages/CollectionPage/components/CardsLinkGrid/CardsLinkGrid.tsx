@@ -3,8 +3,9 @@ import { getCardsFromCollection } from "@api/sanityClient";
 import styles from "./CardsLinkGrid.module.css";
 import { Link } from "react-router";
 import { ErrorBoundarySuspense } from "@components/ErrorBoundarySuspense/ErrorBoundarySuspense";
-import { Skeleton } from "./components/Skeleton";
 import { ThemeContext } from "@layouts/PageLayoutWrapper/PageLayoutWrapper";
+import { SkeletonCard } from "@components/SkeletonCard/SkeletonCard";
+import clsx from "clsx";
 
 type Props = {
   collectionSlug: string;
@@ -16,7 +17,7 @@ const SuspenseComponent = ({ collectionSlug }: Props) => {
 
   return (
     <div className={styles.cardsLinkGrid}>
-      {[...cards, ...cards].map((card, index) => (
+      {cards.map((card, index) => (
         <Link
           to={`/${card.collectionSlug}/${card.slug}`}
           className={styles.cardLink}
@@ -38,6 +39,14 @@ const SuspenseComponent = ({ collectionSlug }: Props) => {
     </div>
   );
 };
+
+const Skeleton = () => (
+  <div className={clsx(styles.cardsLinkGrid, styles.skeleton)}>
+    {[...Array(4)].map((_, idx) => (
+      <SkeletonCard key={idx} />
+    ))}
+  </div>
+);
 
 export const CardsLinkGrid = ({ collectionSlug }: Props) => {
   return (

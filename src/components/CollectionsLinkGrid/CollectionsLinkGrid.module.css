@@ -1,7 +1,14 @@
+/* COMPONENT */
 .collectionsGrid {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--gap-lg);
+}
+
+/* SKELETON */
+.skeleton > * {
+  height: 44px;
+  width: 150px;
 }

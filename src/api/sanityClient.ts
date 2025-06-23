@@ -79,7 +79,7 @@ export const getCard = (slug: string, collectionSlug?: string) => {
     params: { slug, collectionSlug },
     transform: (card) => {
       if (!card) {
-        throw new Error(`No cards with slug: ${slug}`);
+        throw new Error(`No card with slug: ${slug}`);
       }
       return card;
     },
