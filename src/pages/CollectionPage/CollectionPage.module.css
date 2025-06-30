@@ -2,10 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
+  gap: var(--gap-2xl);
 }
 
 .cardsGrid {
-    max-width: var(--max-w-xl);
-    width: 100%;
+  max-width: var(--max-w-xl);
+  width: 100%;
 }

@@ -1,4 +1,4 @@
-.fancyButtonLink {
+.fancyButton {
   --outline-width: 0.35rem;
   position: relative;
   display: flex;
@@ -16,7 +16,7 @@
 
   transition: var(--theme-transitions), transform var(--anim-duration-sm);
 }
-.fancyButtonLink::before {
+.fancyButton::before {
   content: "";
   position: absolute;
   width: calc(100% + var(--outline-width) * 2);
@@ -25,20 +25,20 @@
   outline: 0 solid var(--yellow-400);
   transition: outline var(--anim-duration-sm);
 }
-.fancyButtonLink:focus-visible {
+.fancyButton:focus-visible {
   outline: var(--outline-width) solid var(--color-bg-base);
   border: 2px solid var(--color-bg-subtle);
 }
-.fancyButtonLink:focus-visible::before {
+.fancyButton:focus-visible::before {
   outline: var(--outline-width) solid var(--yellow-400);
 }
-.fancyButtonLink:disabled {
+.fancyButton:disabled {
   cursor: not-allowed;
   opacity: 0.4;
 }
 
 /* PRIMARY STYLES */
-.fancyButtonLinkPrimary {
+.fancyButtonPrimary {
   image-rendering: pixelated;
   background: url("/grainy_texture.png") 0 0 / 6rem repeat,
     radial-gradient(
@@ -49,16 +49,16 @@
     linear-gradient(to top, var(--yellow-300) 0%, var(--yellow-600) 100%);
   background-blend-mode: screen, normal, normal;
 }
-.fancyButtonLinkPrimary > .fancyText {
+.fancyButtonPrimary > .fancyText {
   background: linear-gradient(#ffffff, var(--yellow-100));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.fancyButtonLinkPrimary > .icon > path {
+.fancyButtonPrimary > .icon > path {
   fill: #ffffff;
 }
-.fancyButtonLinkPrimary:hover {
+.fancyButtonPrimary:hover {
   transform: translateY(-0.25rem);
   box-shadow: 0px var(--size-md) var(--size-lg) 0px var(--yellow-300-50),
     0 -0.5rem var(--graysky-500-25) inset;
@@ -66,19 +66,19 @@
 }
 
 /* SECONDARY STYLES */
-.fancyButtonLinkSecondary {
+.fancyButtonSecondary {
   background-color: var(--color-bg-base);
 }
-.fancyButtonLinkSecondary > .fancyText {
+.fancyButtonSecondary > .fancyText {
   background: linear-gradient(var(--color-text-base), var(--color-text-subtle));
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
 }
-.fancyButtonLinkSecondary > .icon > path {
+.fancyButtonSecondary > .icon > path {
   fill: var(--color-text-base);
 }
-.fancyButtonLinkSecondary:hover {
+.fancyButtonSecondary:hover {
   transform: translateY(-0.25rem);
   box-shadow: 0px var(--size-sm) var(--size-md) 0px var(--graysky-500-25),
     0 -0.5rem var(--graysky-500-25) inset;

@@ -1,35 +1,64 @@
 import { Link } from "react-router";
 import styles from "./Header.module.css";
 import { DesignApiLogo } from "@components/DesignApiLogo/DesignApiLogo";
+import { FancyButton } from "@components/FancyButton/FancyButton";
+import { ThemeContext } from "@layouts/PageLayoutWrapper/PageLayoutWrapper";
+import { useContext } from "react";
 
 import SvgFigmaIcon from "@assets/figma_icon.svg?react";
-import { FancyButtonLink } from "@components/FancyButtonLink/FancyButtonLink";
+import SvgLightmodeIcon from "@assets/lightmode_icon.svg?react";
+import SvgDarkmodeIcon from "@assets/darkmode_icon.svg?react";
+import SvgAutomodeIcon from "@assets/automode_icon.svg?react";
+import { toTitleCase } from "../../../../util/stringUtils";
+import clsx from "clsx";
 
 export const Header = () => {
+  const { themeSetting, toggleThemeSetting } = useContext(ThemeContext);
+
+  const ThemeIcon =
+    themeSetting === "light"
+      ? SvgLightmodeIcon
+      : themeSetting === "dark"
+      ? SvgDarkmodeIcon
+      : SvgAutomodeIcon;
+
   return (
     <header>
       <nav className={styles.header}>
-        <Link to="/">
-          <DesignApiLogo size="small" />
-        </Link>
-
         <div className={styles.buttonGroup}>
-          <FancyButtonLink
+          <Link to="/" className={styles.homeLink}>
+            <DesignApiLogo size="small" />
+          </Link>
+          <FancyButton
+            as="button"
+            onClick={toggleThemeSetting}
+            Icon={ThemeIcon}
+            iconAlt="Theme icon"
+            variant="Secondary"
+          >
+            {toTitleCase(themeSetting)}
+          </FancyButton>
+        </div>
+
+        <div className={clsx(styles.buttonGroup, styles.actionButtons)}>
+          <FancyButton
+            as="link"
             to="https://www.figma.com"
             Icon={SvgFigmaIcon}
             iconAlt="Figma Icon"
             variant="Secondary"
           >
             Get it on Figma
-          </FancyButtonLink>
-          <FancyButtonLink
+          </FancyButton>
+          <FancyButton
+            as="link"
             to="https://www.figma.com"
             Icon={SvgFigmaIcon}
             iconAlt="Figma Icon"
             variant="Primary"
           >
             Order Card Deck
-          </FancyButtonLink>
+          </FancyButton>
         </div>
       </nav>
     </header>

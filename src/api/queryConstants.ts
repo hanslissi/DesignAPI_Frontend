@@ -17,7 +17,7 @@ export const COLLECTION_QUERY = `
 `;
 
 export const CARD_BY_SLUG_QUERY = `
-*[_type == "card" && slug.current == $slug]{
+*[_type == "card" && slug.current == $slug] | order(_createdAt asc) {
   title,
   "slug":slug.current,
   "collectionSlug": collection -> slug.current,
@@ -46,12 +46,12 @@ export const CARDS_BY_COLLECTION_SLUG_QUERY = `
     title,
     color,
     "slug": slug.current,
-    "iconUrl": icon.asset->url
+    "iconUrl": icon.asset -> url
   }[0],
-  "cards": *[_type == "card" && collection->slug.current == $collectionSlug] | order(slug.current asc){
+  "cards": *[_type == "card" && collection -> slug.current == $collectionSlug]  | order(_createdAt asc) {
     title,
     "slug": slug.current,
-    "collectionSlug": collection->slug.current,
+    "collectionSlug": collection -> slug.current,
     "imgFrontLightUrl": imgFrontLight.asset->url,
     "imgBackLightUrl": imgBackLight.asset->url,
     "imgFrontDarkUrl": imgFrontDark.asset->url,

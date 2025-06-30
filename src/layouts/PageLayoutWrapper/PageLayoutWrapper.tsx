@@ -34,9 +34,6 @@ export const PageLayoutWrapper = ({ children }: Props) => {
         }
       >
         <Header />
-        <button onClick={() => themeConfig.toggleThemeSetting()}>
-          Toggle Theme {themeConfig.themeSetting}
-        </button>
 
         <main className={styles.mainContent}>{children}</main>
       </div>

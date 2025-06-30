@@ -9,10 +9,12 @@
 .buttonGroup {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   gap: var(--gap-lg);
 }
 
-.buttonGroup > * {
+.actionButtons > * {
   width: 100%;
 }
 
@@ -22,7 +24,7 @@
     align-items: center;
   }
 
-  .buttonGroup > * {
+  .actionButtons > * {
     width: unset;
   }
 }
