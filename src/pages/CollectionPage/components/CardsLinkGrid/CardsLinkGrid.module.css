@@ -36,13 +36,13 @@
   }
 }
 
-@media (width >= 40rem) {
+@media (min-width: 40rem) {
   .cardsLinkGrid {
     --cols: 3;
   }
 }
 
-@media (width >= 70rem) {
+@media (min-width: 70rem) {
   .cardsLinkGrid {
     --cols: 4;
   }

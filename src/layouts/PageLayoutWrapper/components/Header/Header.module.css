@@ -18,7 +18,7 @@
   width: 100%;
 }
 
-@media (width >= 40rem) {
+@media (min-width: 40rem) {
   .header {
     flex-direction: row;
     align-items: center;

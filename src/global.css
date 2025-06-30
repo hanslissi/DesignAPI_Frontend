@@ -165,7 +165,7 @@ input[type="reset"] {
 }
 
 /* GLOBAL MEDIA QUERIES */
-@media (width >= 40rem) {
+@media (min-width: 40rem) {
   :root {
     --size-sm: 0.25rem;
     --size-md: 0.5rem;
@@ -181,7 +181,7 @@ input[type="reset"] {
   }
 }
 
-@media (width >= 70rem) {
+@media (min-width: 70rem) {
   :root {
     --font-size-sm: 0.875rem;
     --font-size-md: 1rem;

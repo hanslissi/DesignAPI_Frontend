@@ -13,7 +13,7 @@
   border-top-right-radius: var(--radius-xl);
 }
 
-@media (width >= 40rem) {
+@media (min-width: 40rem) {
   .skeleton {
     border-radius: var(--radius-lg);
   }
