@@ -8,10 +8,16 @@
 
 .big {
   font-size: var(--font-h1);
-  gap: var(--gap-lg);
+  gap: var(--gap-md);
 }
 
 .small {
   font-size: var(--font-h3);
   gap: var(--gap-sm);
+}
+
+@media (min-width: 40rem) {
+  .big {
+    gap: var(--gap-lg);
+  }
 }
