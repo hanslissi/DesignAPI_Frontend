@@ -12,7 +12,7 @@ export const CollectionPanel = ({
 }: Props) => {
   return (
     <Link
-      to={`/${slug}`}
+      to={`/collections/${slug}`}
       className={styles.collectionPanel}
       style={{ "--shadow-color": `${color}44` } as React.CSSProperties}
     >

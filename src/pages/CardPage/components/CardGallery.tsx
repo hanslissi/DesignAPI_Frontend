@@ -49,7 +49,7 @@ const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
         {nextCardSlug && prevCardSlug && (
           <>
             <Link
-              to={`/${collectionSlug}/${prevCardSlug}`}
+              to={`/collections/${collectionSlug}/${prevCardSlug}`}
               className={clsx(styles.navButton, styles.prevButton)}
               aria-label="Previous Card"
             >
@@ -61,7 +61,7 @@ const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
               />
             </Link>
             <Link
-              to={`/${collectionSlug}/${nextCardSlug}`}
+              to={`/collections/${collectionSlug}/${nextCardSlug}`}
               className={clsx(styles.navButton, styles.nextButton)}
               aria-label="Next Card"
             >

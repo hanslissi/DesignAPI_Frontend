@@ -59,3 +59,13 @@ export const CARDS_BY_COLLECTION_SLUG_QUERY = `
   }
 }
 `;
+
+export const ALL_RESOURCES_QUERY = `
+*[_type == "resource"]{
+  title,
+  description,
+  "imgThumbnailUrl": imgThumbnail.asset -> url,
+  "resourceUrl": resourceUrl,
+  "resourceFileUrl": resourceFile.asset -> url
+}
+`;

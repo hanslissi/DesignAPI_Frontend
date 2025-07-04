@@ -19,7 +19,7 @@ const SuspenseComponent = ({ collectionSlug }: Props) => {
     <div className={styles.cardsLinkGrid}>
       {cards.map((card, index) => (
         <Link
-          to={`/${card.collectionSlug}/${card.slug}`}
+          to={`/collections/${card.collectionSlug}/${card.slug}`}
           className={styles.cardLink}
           key={`${card.slug}.${index}`}
           style={

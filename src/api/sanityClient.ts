@@ -5,6 +5,7 @@
 import { createClient } from "@sanity/client";
 import {
   ALL_COLLECTIONS_QUERY,
+  ALL_RESOURCES_QUERY,
   CARD_BY_SLUG_COLLECTION_SLUG_QUERY,
   CARD_BY_SLUG_QUERY,
   CARDS_BY_COLLECTION_SLUG_QUERY,
@@ -26,6 +27,14 @@ export type SanityCard = {
   imgBackLightUrl: string;
   imgFrontDarkUrl: string;
   imgBackDarkUrl: string;
+};
+
+export type SanityResource = {
+  title: string;
+  description: string;
+  imgThumbnailUrl: string;
+  resourceUrl: string | null;
+  resourceFileUrl: string | null;
 };
 
 type CacheFetchProps<T> = {
@@ -117,3 +126,6 @@ export const getCollection = (collectionSlug: string) => {
 export const getCollections = sanityClient.fetch<SanityCollection[]>(
   ALL_COLLECTIONS_QUERY
 );
+
+export const getResources =
+  sanityClient.fetch<SanityResource[]>(ALL_RESOURCES_QUERY);

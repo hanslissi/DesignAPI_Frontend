@@ -5,7 +5,7 @@ import { FancyButton } from "@components/FancyButton/FancyButton";
 import { ThemeContext } from "@layouts/PageLayoutWrapper/PageLayoutWrapper";
 import { useContext } from "react";
 
-import SvgFigmaIcon from "@assets/figma_icon.svg?react";
+import SvgDownloadIcon from "@assets/download_icon.svg?react";
 import SvgLightmodeIcon from "@assets/lightmode_icon.svg?react";
 import SvgDarkmodeIcon from "@assets/darkmode_icon.svg?react";
 import SvgAutomodeIcon from "@assets/automode_icon.svg?react";
@@ -43,21 +43,12 @@ export const Header = () => {
         <div className={clsx(styles.buttonGroup, styles.actionButtons)}>
           <FancyButton
             as="link"
-            to="https://www.figma.com"
-            Icon={SvgFigmaIcon}
-            iconAlt="Figma Icon"
-            variant="Secondary"
-          >
-            Get it on Figma
-          </FancyButton>
-          <FancyButton
-            as="link"
-            to="https://www.figma.com"
-            Icon={SvgFigmaIcon}
+            to="/resources"
+            Icon={SvgDownloadIcon}
             iconAlt="Figma Icon"
             variant="Primary"
           >
-            Order Card Deck
+            Free Resources
           </FancyButton>
         </div>
       </nav>
