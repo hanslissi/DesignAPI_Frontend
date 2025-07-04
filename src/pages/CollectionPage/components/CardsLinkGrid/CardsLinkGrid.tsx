@@ -24,7 +24,7 @@ const SuspenseComponent = ({ collectionSlug }: Props) => {
           key={`${card.slug}.${index}`}
           style={
             {
-              "--animation-delay": `${index * 0.2}s`,
+              "--animation-delay": `${0.05 + index * 0.2}s`,
             } as React.CSSProperties
           }
         >

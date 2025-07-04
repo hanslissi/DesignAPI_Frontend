@@ -14,6 +14,7 @@
   width: var(--w-cardlink);
   animation: turnReveal var(--anim-duration-md) var(--animation-delay) backwards;
   transition: transform var(--anim-duration-md);
+  transform: translateZ(0);
 }
 
 .cardLink:hover {
