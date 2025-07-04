@@ -44,3 +44,8 @@
 .sections > section > p {
   font-family: var(--font-fancy);
 }
+
+.linkedInLink {
+  text-decoration: underline;
+  font-weight: bold;
+}
