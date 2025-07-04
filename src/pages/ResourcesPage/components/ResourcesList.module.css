@@ -9,15 +9,15 @@
 
 .resourceLink {
   display: flex;
+  flex-direction: column;
   gap: var(--gap-md);
-  padding: var(--gap-md);
+  padding: var(--gap-lg);
   background-color: var(--color-bg-base);
   border-radius: var(--radius-lg);
   border: 2px solid var(--color-bg-subtle);
 }
 
 .resourceLink > img {
-  max-width: 10rem;
   width: 100%;
   height: auto;
   border-radius: var(--radius-md);
@@ -41,7 +41,18 @@
 }
 
 .resourceInfo > p {
-  color: var(--color-text-subtle)
+  color: var(--color-text-subtle);
+}
+
+@media (min-width: 40rem) {
+  .resourceLink {
+    padding: var(--gap-md);
+    flex-direction: row;
+  }
+
+  .resourceLink > img {
+    max-width: 10rem;
+  }
 }
 
 /* SKELETON */
