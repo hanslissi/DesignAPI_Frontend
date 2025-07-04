@@ -10,6 +10,7 @@ import { SvgIcon } from "@components/Icon/Icon";
 
 import SvgArrowLeftIcon from "@assets/arrow_left_icon.svg?react";
 import SvgArrowRightIcon from "@assets/arrow_right_icon.svg?react";
+import { MessageCard } from "@components/MessageCard/MessageCard";
 
 type Props = {
   collectionSlug: string;
@@ -43,6 +44,7 @@ const SuspenseComponent = ({ collectionSlug, cardSlug }: Props) => {
     >
       <div className={styles.cardDisplay}>
         <Card slug={cardSlug} collectionSlug={collectionSlug} />
+        <MessageCard>Tap card to flip 🎴</MessageCard>
       </div>
 
       <nav className={styles.galleryNav}>

@@ -21,16 +21,18 @@
 
 .cardDisplay {
   display: flex;
+  flex-direction: column;
+  gap: var(--gap-md);
   align-items: center;
   justify-content: center;
 
   aspect-ratio: var(--aspect-card);
 
-  --height-nav: calc(24px + var(--gap-lg));
+  --height-nav: calc(24px + (var(--gap-lg) * 4));
   --max-h-card: calc(80vh - var(--height-nav) - var(--gap-lg) * 3);
   width: min(
     90%,
-    min(var(--max-w-md), var(--max-h-card) * (var(--aspect-card)))
+    min(var(--max-w-md), var(--max-h-card) * var(--aspect-card))
   );
 }
 
