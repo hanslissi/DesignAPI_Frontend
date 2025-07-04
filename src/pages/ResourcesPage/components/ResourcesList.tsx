@@ -75,7 +75,10 @@ const Skeleton = () => {
 
 export const ResourcesList = ({ resourceType }: Props) => {
   return (
-    <ErrorBoundarySuspense suspenseFallback={<Skeleton />}>
+    <ErrorBoundarySuspense
+      suspenseFallback={<Skeleton />}
+      defaultErrorFallbackSize="small"
+    >
       <SuspenseComponent resourceType={resourceType} />
     </ErrorBoundarySuspense>
   );

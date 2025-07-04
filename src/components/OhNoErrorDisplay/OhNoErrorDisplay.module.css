@@ -1,0 +1,11 @@
+.errorDisplay {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-lg);
+  align-items: center;
+}
+
+.errorDisplay > img {
+  width: 100%;
+  max-width: var(--max-w-md);
+}

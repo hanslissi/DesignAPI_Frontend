@@ -31,7 +31,10 @@ const Skeleton = () => (
 
 export const CollectionsLinkGrid = () => {
   return (
-    <ErrorBoundarySuspense suspenseFallback={<Skeleton />}>
+    <ErrorBoundarySuspense
+      suspenseFallback={<Skeleton />}
+      defaultErrorFallbackSize="small"
+    >
       <SuspenseComponent />
     </ErrorBoundarySuspense>
   );

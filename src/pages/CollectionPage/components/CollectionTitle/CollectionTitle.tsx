@@ -23,6 +23,7 @@ const SuspenseComponent = ({ collectionSlug }: Props) => {
 export const CollectionTitle = ({ collectionSlug }: Props) => {
   return (
     <ErrorBoundarySuspense
+      errorFallback={<h1>Collection not found</h1>}
       suspenseFallback={<SkeletonCard className={styles.skeleton} />}
     >
       <SuspenseComponent collectionSlug={collectionSlug} />
